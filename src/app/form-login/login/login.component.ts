@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       if(data.token != undefined){
         this.tokenService.setToken(data.token);
         this.tokenService.setName(data.name);
+        this.tokenService.setAvatar(data.avatar)
         // this.tokenService.setUsername(data.username);
         this.name = this.tokenService.getName();
 

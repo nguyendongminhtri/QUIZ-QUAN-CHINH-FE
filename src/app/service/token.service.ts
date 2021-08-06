@@ -2,12 +2,20 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'Token_key';
 const NAME_KEY = 'Name_key';
 const ROLE_KEY = 'Role_key';
+const AVATAR_KEY = 'Avatar_key';
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
   private roles: Array<string> = [];
   constructor() { }
+  public setAvatar(avatar: string){
+    window.sessionStorage.removeItem(AVATAR_KEY);
+    window.sessionStorage.setItem(AVATAR_KEY, avatar)
+  }
+  public getAvatar(): string{
+    return window.sessionStorage.getItem(AVATAR_KEY);
+  }
   public setToken(token: string){
     window.sessionStorage.removeItem(TOKEN_KEY)
     window.sessionStorage.setItem(TOKEN_KEY, token)

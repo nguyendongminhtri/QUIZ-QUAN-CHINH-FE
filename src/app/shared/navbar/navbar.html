@@ -1,35 +1,18 @@
-<nav class="docs-navbar-header" aria-label="Top Toolbar">
-  <a mat-button class="docs-button" routerLink="/" aria-label="Angular Material">
-    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/angular-white-transparent.svg"
-      alt="">
-    <span>QUIZ</span>
-  </a>
-  <a *ngIf="!isLoggedInt" mat-button class="docs-button" routerLink="register" aria-label="Angular Material">
-    <span>Register</span>
-  </a>
-  <a *ngIf="!isLoggedInt" mat-button class="docs-button" routerLink="login" aria-label="Angular Material">
-    <span>Login</span>
-  </a>
-  <a *ngIf="isLoggedInt" mat-button class="docs-button" routerLink="user-account" aria-label="Angular Material">
-    <span>{{name}}</span>
-  </a>
-  <div class="flex-spacer"></div>
-  <theme-picker></theme-picker>
-  <a mat-button class="docs-button docs-navbar-hide-small" target="_blank" href=" https://github.com/nguyendongminhtri/C0221I1-FrontEnd.git"
-    aria-label="GitHub Repository">
-    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
-      alt="">
-    Front End
-  </a>
-  <a mat-button class="docs-button docs-navbar-hide-small" target="_blank" href="https://github.com/nguyendongminhtri/QUIZ-QUAN-CHINH-BE.git"
-     aria-label="GitHub Repository">
-    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
-         alt="">
-    Back End
-  </a>
-  <a mat-icon-button class="docs-button docs-navbar-show-small" href="https://github.com/nguyendongminhtri/QUIZ-QUAN-CHINH-FE.git"
-    aria-label="GitHub Repository">
-    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
-      alt="">
-  </a>
-</nav>
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<div class="topnav" id="myTopnav">
+    <a  routerLink="/">QUIZ</a>
+    <a *ngIf="!isLoggedInt" routerLink="register">Register</a>
+    <a *ngIf="!isLoggedInt" routerLink="login">Login</a>
+    <a *ngIf="isLoggedInt" >{{name}}</a>
+    <a class="image" *ngIf="isLoggedInt" style="color: springgreen; text-decoration: none;"
+       aria-label="Angular Audio Player"
+       mat-button tabindex="0" aria-disabled="false" routerLink="/changeAvatar"><span class="mat-button-wrapper">
+        <img alt="angular" class="image" [src]=avatar width="40px" height="40px"></span>
+        <div class="mat-button-ripple mat-ripple" matripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+    </a><span class="example-spacer"></span>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
