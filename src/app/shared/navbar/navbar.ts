@@ -8,6 +8,7 @@ import {ThemeStorage} from '../theme-picker/theme-storage/theme-storage';
 import {StyleManager} from '../style-manager';
 import {HttpClientModule} from '@angular/common/http';
 import {TokenService} from '../../service/token.service';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +17,7 @@ import {TokenService} from '../../service/token.service';
 })
 export class NavBar implements OnInit{
   name: string;
+  avatar: string;
   isLoggedInt = false;
   constructor(private tokenService: TokenService) {
   }
@@ -23,6 +25,8 @@ export class NavBar implements OnInit{
     if(this.tokenService.getToken()){
       this.isLoggedInt = true;
       this.name = this.tokenService.getName();
+      this.avatar =  this.tokenService.getAvatar();
+      console.log('avatar = ', this.avatar);
     }
   }
   
@@ -36,6 +40,7 @@ export class NavBar implements OnInit{
     MatMenuModule,
     RouterModule,
     ThemePickerModule,
+    MatCardModule,
   ],
   exports: [NavBar],
   declarations: [NavBar],

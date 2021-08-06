@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenService} from '../../service/token.service';
 
 @Component({
   selector: 'app-user-account',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-account.component.scss']
 })
 export class UserAccountComponent implements OnInit {
-
-  constructor() { }
+  info: any;
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    this.info = {
+      name: this.tokenService.getName(),
+      avatar: this.tokenService.getAvatar()
+    };
   }
   logOut(){
     window.sessionStorage.clear();
