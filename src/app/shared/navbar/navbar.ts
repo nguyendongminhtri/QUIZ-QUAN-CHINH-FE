@@ -1,4 +1,4 @@
-import {Component, NgModule, OnInit} from '@angular/core';
+import {Component, EventEmitter, NgModule, OnInit, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
@@ -19,6 +19,8 @@ export class NavBar implements OnInit{
   name: string;
   avatar: string;
   isLoggedInt = false;
+  @Output()
+  avatarUrl = new EventEmitter<string>();
   constructor(private tokenService: TokenService) {
   }
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class NavBar implements OnInit{
       this.isLoggedInt = true;
       this.name = this.tokenService.getName();
       this.avatar =  this.tokenService.getAvatar();
+      this.avatarUrl.emit(this.avatar);
       console.log('avatar = ', this.avatar);
     }
   }
