@@ -8,6 +8,8 @@ import {TokenService} from '../../service/token.service';
 })
 export class UserAccountComponent implements OnInit {
   info: any;
+  admin: any = ["ADMIN"];
+  isCheckAdmin = false;
   constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
@@ -15,6 +17,9 @@ export class UserAccountComponent implements OnInit {
       name: this.tokenService.getName(),
       avatar: this.tokenService.getAvatar()
     };
+    if(JSON.stringify(this.tokenService.getRoles())==JSON.stringify(this.admin)){
+      this.isCheckAdmin = true;
+    }
   }
   logOut(){
     this.tokenService.logOut();
