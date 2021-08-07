@@ -4,10 +4,10 @@
     <a  routerLink="/">QUIZ</a>
     <a *ngIf="!isLoggedInt" routerLink="register">Register</a>
     <a *ngIf="!isLoggedInt" routerLink="login">Login</a>
-    <a *ngIf="isLoggedInt" >{{name}}</a>
+    <a *ngIf="isLoggedInt" routerLink="user-account" >{{name}}</a>
     <a class="image" *ngIf="isLoggedInt" style="color: springgreen; text-decoration: none;"
        aria-label="Angular Audio Player"
-       mat-button tabindex="0" aria-disabled="false" routerLink="/changeAvatar"><span class="mat-button-wrapper">
+       mat-button tabindex="0" aria-disabled="false" routerLink="/change-avatar"><span class="mat-button-wrapper">
         <img alt="angular" class="image" [src]=avatar width="40px" height="40px"></span>
         <div class="mat-button-ripple mat-ripple" matripple=""></div>
         <div class="mat-button-focus-overlay"></div>
