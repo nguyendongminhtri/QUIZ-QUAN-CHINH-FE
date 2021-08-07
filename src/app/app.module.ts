@@ -47,6 +47,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { ChangeAvatarComponent } from './manage-profile/change-avatar/change-avatar.component';
 import { ChangePasswordComponent } from './manage-profile/change-password/change-password.component';
 import { ChangeProfileComponent } from './manage-profile/change-profile/change-profile.component';
+import { PageUserComponent } from './admin-manage/page-user/page-user.component';
+import {AdminGuard} from './service/admin.guard';
 
 
 export const appRoutes: Routes = [
@@ -56,11 +58,12 @@ export const appRoutes: Routes = [
   { path: 'user-account', component: UserAccountComponent, canActivate: [AuthGuard], data: { title: 'User-Account'}},
   { path: 'change-avatar', component: ChangeAvatarComponent, data: {title: 'Change-Avatar'}},
   { path: 'change-password', component: ChangePasswordComponent, data: {title: 'Change-Password'}},
-  { path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard],data: {title: 'Change-Profile'}}
+  { path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard],data: {title: 'Change-Profile'}},
+  { path: 'page-user', component: PageUserComponent,canActivate: [AdminGuard], data: {title: 'Page-User'}}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, ChangePasswordComponent, ChangeProfileComponent],
+  declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, ChangePasswordComponent, ChangeProfileComponent, PageUserComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
