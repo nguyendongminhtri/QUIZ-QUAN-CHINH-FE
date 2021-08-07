@@ -17,7 +17,6 @@ export class UserAccountComponent implements OnInit {
     };
   }
   logOut(){
-    window.sessionStorage.clear();
-    window.location.reload();
+    this.tokenService.logOut();
   }
 }

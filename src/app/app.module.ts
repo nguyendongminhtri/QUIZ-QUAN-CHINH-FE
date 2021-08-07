@@ -44,6 +44,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {httpInterceptorProviders} from './service/auth.interceptor';
 import {AuthGuard} from './service/auth.guard';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ChangeAvatarComponent } from './manage-profile/change-avatar/change-avatar.component';
+import { ChangePasswordComponent } from './manage-profile/change-password/change-password.component';
+import { ChangeProfileComponent } from './manage-profile/change-profile/change-profile.component';
 
 
 export const appRoutes: Routes = [
@@ -51,10 +54,13 @@ export const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   { path: 'login', component: LoginComponent, data: {title: 'Login'}},
   { path: 'user-account', component: UserAccountComponent, canActivate: [AuthGuard], data: { title: 'User-Account'}},
+  { path: 'change-avatar', component: ChangeAvatarComponent, data: {title: 'Change-Avatar'}},
+  { path: 'change-password', component: ChangePasswordComponent, data: {title: 'Change-Password'}},
+  { path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard],data: {title: 'Change-Profile'}}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent],
+  declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, ChangePasswordComponent, ChangeProfileComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
