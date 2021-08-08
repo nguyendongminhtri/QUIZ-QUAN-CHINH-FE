@@ -3,11 +3,13 @@
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0 ">
                 <mat-card-title align="center" class="alert alert-primary">ADMIN MANAGE</mat-card-title>
+<!--                <mat-error class="alert alert-primary">{{status}}</mat-error>-->
                 <div class="row">
                     <div class="column" *ngFor="let user of users">
-                        <button  mat-icon-button aria-label="Example icon-button with a heart icon" (click)="deleteSongById(song.id)">
+                        <button  mat-icon-button aria-label="Example icon-button with a heart icon" (click)="openDialog(user.id)">
                             <mat-icon color="warn">delete</mat-icon>
                         </button>
+<!--                        <button mat-button (click)="openDialog()">Open dialog</button>-->
                         <div class="card">
                             <i  style="font-size:1.5vw;color: crimson">{{user.username}}</i>
                             <i style="font-size:1.5vw;color: crimson">{{user.email}}</i>
@@ -23,3 +25,6 @@
         </div>
     </div>
 </div>
+
+
+
