@@ -1,4 +1,5 @@
 import {Component, NgModule} from '@angular/core';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-footer',
@@ -13,5 +14,8 @@ export class Footer {
 @NgModule({
   exports: [Footer],
   declarations: [Footer],
+  imports: [
+    MatIconModule
+  ]
 })
 export class FooterModule {}
