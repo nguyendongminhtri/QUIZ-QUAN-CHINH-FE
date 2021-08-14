@@ -9,6 +9,9 @@
                         <button  mat-icon-button aria-label="Example icon-button with a heart icon" (click)="openDialog(user.id)">
                             <mat-icon color="warn">delete</mat-icon>
                         </button>
+                        <button [routerLink]="['/change-role/',user.id]" mat-icon-button color="primary" aria-label="Example icon button with a heart icon">
+                            <mat-icon>edit</mat-icon>
+                        </button>
 <!--                        <button mat-button (click)="openDialog()">Open dialog</button>-->
                         <div class="card">
                             <i  style="font-size:1.5vw;color: crimson">{{user.username}}</i>
