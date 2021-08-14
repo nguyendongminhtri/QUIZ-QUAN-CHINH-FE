@@ -53,6 +53,8 @@ import {MatListModule} from '@angular/material/list';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogContentExampleDialogComponent } from './admin-manage/dialog-content-example-dialog/dialog-content-example-dialog.component';
+import { ChangeRoleComponent } from './admin-manage/change-role/change-role.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 export const appRoutes: Routes = [
@@ -63,11 +65,12 @@ export const appRoutes: Routes = [
   { path: 'change-avatar', component: ChangeAvatarComponent, data: {title: 'Change-Avatar'}},
   { path: 'change-password', component: ChangePasswordComponent, data: {title: 'Change-Password'}},
   { path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard],data: {title: 'Change-Profile'}},
-  { path: 'page-user', component: PageUserComponent,canActivate: [AdminGuard], data: {title: 'Page-User'}}
+  { path: 'page-user', component: PageUserComponent,canActivate: [AdminGuard], data: {title: 'Page-User'}},
+  { path: 'change-role/:id', component: ChangeRoleComponent, data: {title: 'Change-Role'}}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, ChangePasswordComponent, ChangeProfileComponent, PageUserComponent, DialogContentExampleDialogComponent],
+  declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, ChangePasswordComponent, ChangeProfileComponent, PageUserComponent, DialogContentExampleDialogComponent, ChangeRoleComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -86,7 +89,7 @@ export const appRoutes: Routes = [
     NgxAudioPlayerModule,
     RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatListModule, MatDialogModule
+    AngularFireModule.initializeApp(environment.firebaseConfig), MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatListModule, MatDialogModule, MatSelectModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
