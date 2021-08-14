@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar >
+                            <img  [src]= user.avatar height="50px"
+                                 width="50px"/>
+                        </div>
+                        <mat-card-title class="information" style="color: #2c8ebb"> USER INFOMATION</mat-card-title>
+                        <mat-card-subtitle STYLE="color: fuchsia"><b style="color: #2b542c">Name: </b> {{user.name}}</mat-card-subtitle>
+                        <mat-card-subtitle STYLE="color: fuchsia"><b style="color: #2b542c">Username: </b> {{user.username}}</mat-card-subtitle>
+                        <mat-card-subtitle STYLE="color: fuchsia"><b style="color: #2b542c">Email: </b> {{user.email}}</mat-card-subtitle>
+                        <mat-card-subtitle *ngFor="let role of user.roles" STYLE="color: fuchsia"><b style="color: #2b542c">Role: </b> {{role.name}}</mat-card-subtitle>
+                    </mat-card-header>
+<!--                    <img mat-card-image routerLink="/changeAvatar" class="image1" [src]="user.avatar" height="300px"-->
+<!--                         width="400px">-->
+                    <form>
+                        <mat-form-field appearance="fill">
+                            <mat-label style="color:red;">Change Role User</mat-label>
+                            <select matNativeControl  [(ngModel)]="form.role" (ngModelChange)="form.role=$event" [ngModelOptions]="{standalone: true}">
+                                <!--                            <option value="" selected></option>-->
+                                <option *ngIf="!isCheckRoleAdmin" value="admin">ADMIN</option>
+                                <!--                            <option value="saab" disabled>Saab</option>-->
+                                <option *ngIf="!isCheckRolePM" value="pm">PM</option>
+                                <option *ngIf="!isCheckRoleUser" value="user">USER</option>
+                            </select>
+                        </mat-form-field>
+<!--                        <button (click)="onChangeRole()">Change</button>-->
+                        <button (click)="onChangeRole()" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Change Role
+                            <mat-icon color="accent" matSuffix>published_with_changes</mat-icon>
+                        </button>
+                    </form>
+
+                </mat-card>
+            </mat-card>
+        </div>
+    </div>
+</div>
